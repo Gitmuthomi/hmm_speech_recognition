@@ -1,15 +1,23 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\documentclass[informe,english]{practicaitic}
+\usepackage{lst-vhdl, lst-shell}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.multipart, arrows.meta}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumerate}
+\usepackage{amsmath}
 
-\title{HMM for Speech Recognition}
-\author{Anass Anhari Talib \\ Eric Muthomi Gitonga \\ Pol Vidal Miranda}
-
-
-\date{May 28, 2025}
+\title{Hidden Markov Models for Speech Recognition}
+\author{Anass Anhari Talib \and Eric Muthomi Gitonga \and Pol Vidal Miranda}
+\assignatura{Probablistic Methods}
+\numpract{1}
 
 \begin{document}
-
-\maketitle
 
 \section{Introduction}
     
@@ -49,7 +57,7 @@
 
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=1.0\linewidth]{stereo.png}
+        \includegraphics[width=1.0\linewidth]{img/stereo.png}
         \caption{Stereo Audio output}
         \label{fig:enter-label}
     \end{figure}
@@ -151,7 +159,7 @@
 
         \begin{figure}[h!]
             \centering
-            \includegraphics[width=0.7\linewidth]{confusion.png}
+            \includegraphics[width=0.7\linewidth]{img/conf_matrix.png}
             \caption{Confusion Matrix for audio files}
             \label{fig:enter-label}
         \end{figure}
@@ -161,7 +169,7 @@
     
     Despite the complexity of speech recognition and our short timeline, the model showed encouraging results and worked reliably for basic commands.
     
-    \section*{Challenges of HMM models}
+    \section{Challenges of HMM models}
      
     HMM often struggles to classify different sounds using a single model due to several key limitations:
     
@@ -190,20 +198,35 @@
         \end{itemize}
     \end{enumerate}
 
-    \section*{Application Scope}
+    \section{Application Scope}
     \begin{itemize}
         \item For traditional tasks: HMM, GMM, and Kalman Filters are reliable.
         \item For modern approaches: RNNs, Transformers, and CNNs offer greater flexibility and accuracy but require more data and computation.
         \item Emerging trends: Models like WaveNet and Transformers are setting new standards in speech and audio processing.
     \end{itemize}
     
-\section*{Reflections and Conclusion}
+\section{Current state-of-the-art in speech recognition}
+    The field of speech recognition has advanced significantly in recent years, with several key trends and technologies shaping the current state-of-the-art:
+
+    \begin{itemize}
+        \item \textbf{Deep Learning Architectures}: Convolutional Neural Networks (CNNs), Recurrent Neural Networks (RNNs), and Transformers have become the backbone of modern speech recognition systems. These architectures can learn complex patterns in audio data, leading to improved accuracy.
+        
+        \item \textbf{End-to-End Models}: Systems like DeepSpeech and Wav2Vec 2.0 use end-to-end training, eliminating the need for traditional feature extraction methods like MFCCs. They directly map raw audio to text, simplifying the pipeline.
+        
+        \item \textbf{Transfer Learning}: Pre-trained models on large datasets (e.g., LibriSpeech) can be fine-tuned for specific tasks or languages, significantly reducing the amount of labeled data required for training.
+    \end{itemize}
+
+    For example in this case, we could've used a tensorflow model treating this problem as an image classification problem (https://www.tensorflow.org/tutorials/audio/simple\_audio), where the audio is converted to a spectrogram and then classified using a CNN or a Transformer model. 
+
+    In summary, the current state-of-the-art in speech recognition is characterized by deep learning techniques, end-to-end models, and self-supervised learning approaches that leverage large datasets and advanced architectures to achieve high accuracy and robustness across various languages and domains.
+
+\section{Reflections and Conclusion}
 
 This project was a valuable learning experience. Working under the pressure of a lost week due to a national power blackout — with reduced access to classes, guidance, and time — was extremely challenging.
 
 We did not fully understand HMMs at the start. The theory is complex and we lacked time to deeply study the math behind it. However, by following a structured and practical approach, we were able to build a working system and, in the process, gained a meaningful understanding of how HMMs apply real-world audio for speech recognition.
 
-\subsection*{Things We Learned}
+\subsection{Things We Learned}
 
 \begin{itemize}
     \item The importance of preprocessing and normalization in audio tasks.
@@ -212,7 +235,7 @@ We did not fully understand HMMs at the start. The theory is complex and we lack
     \item That data augmentation is key for performance, even in simple models.
 \end{itemize}
 
-\subsection*{Final Thoughts}
+\subsection{Final Thoughts}
 
 This report does not present a perfect or deeply academic solution, but rather a sincere and resilient attempt by students facing real obstacles. We hope our work reflects a spirit of effort, learning, and adaptation.
 
